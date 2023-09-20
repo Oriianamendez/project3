@@ -40,6 +40,12 @@ function displayTemperature(response) {
   currentCondition.innerHTML = response.data.condition.description;
   let currentDate = document.querySelector("#date-and-hour");
   currentDate.innerHTML = formatDate(response.data.time * 1000);
+  let currentIcon = document.querySelector("#icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  currentIcon.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "6efaaef1baet493f7b254do70ae07eb3";
