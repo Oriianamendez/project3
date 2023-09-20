@@ -21,6 +21,9 @@ li {
   padding: 9;
   font-size: 14px;
 }
+li::first-letter {
+  text-transform: capitalize;
+}
 small {
   text-align: center;
   display: block;

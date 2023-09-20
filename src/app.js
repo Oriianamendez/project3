@@ -36,6 +36,8 @@ function displayTemperature(response) {
   currentWindSpeed.innerHTML = `Wind: ${Math.round(
     response.data.wind.speed
   )} m/s`;
+  let currentCondition = document.querySelector("#condition");
+  currentCondition.innerHTML = response.data.condition.description;
   let currentDate = document.querySelector("#date-and-hour");
   currentDate.innerHTML = formatDate(response.data.time * 1000);
 }
