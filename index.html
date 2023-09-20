@@ -9,6 +9,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
@@ -24,25 +25,25 @@
         />
         <button type="button" class="btn btn-secondary">Search</button>
         <button type="button" class="btn btn-dark">🔍</button>
-        <h1>Caracas</h1>
+        <h1 id="city">Caracas</h1>
         <ul>
-          <li>Tuesday 12:00</li>
-          <li>Feels like 20°C</li>
+          <li id="date-and-hour">Tuesday 12:00</li>
+          <li id="sensation"></li>
         </ul>
         <div class="row">
           <div class="col-6">
             <div class="d-flex weather-temperature">
               <img src="src/thermometer-half.svg" alt="thermometer" id="icon" />
               <div class="d-flex weather-temperature">
-                <span class="temperature-number">24</span>
+                <span class="temperature-number" id="temperature-number"></span>
                 <span class="temperature-units">°C | °F</span>
               </div>
             </div>
           </div>
           <div class="col-6">
             <ul>
-              <li>Humidity: 40%</li>
-              <li>Wind: 5km/h</li>
+              <li id="humidity"></li>
+              <li id="wind"></li>
             </ul>
           </div>
         </div>
