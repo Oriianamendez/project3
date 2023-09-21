@@ -22,8 +22,10 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
+  celsiusTemperature = response.data.temperature.current;
+
   let currentTemperature = document.querySelector("#temperature-number");
-  currentTemperature.innerHTML = Math.round(response.data.temperature.current);
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
   let currentCity = document.querySelector("#city");
   currentCity.innerHTML = response.data.city;
   let feelsLike = document.querySelector("#sensation");
@@ -61,7 +63,30 @@ function handleSubmit(event) {
   search(currentCityInput.value);
 }
 
-search("Caracas");
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#temperature-number");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let currentTemperature = document.querySelector("#temperature-number");
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Caracas");

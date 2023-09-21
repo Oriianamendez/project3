@@ -35,6 +35,10 @@ img {
   color: #17342a;
   margin: 5px;
 }
+a {
+  text-decoration: none;
+  color: #6db193;
+}
 .weather-app {
   max-width: 600px;
   margin: 100px auto;
@@ -57,10 +61,7 @@ img {
   margin-left: 10px;
   background: #295f4e;
 }
-.links {
-  text-decoration: none;
-  color: #6db193;
-}
+
 .temperature-number {
   font-size: 65px;
   color: #17342a;
@@ -74,4 +75,11 @@ img {
 }
 .diferent-conditions {
   margin-top: 25px;
+}
+.weather-temperature .active {
+  color: #17342a;
+  cursor: default;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
 }
