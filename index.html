@@ -16,18 +16,20 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <input
-          class="form-control"
-          type="text"
-          value="Enter a city"
-          aria-label="readonly input example"
-          readonly
-        />
-        <button type="button" class="btn btn-secondary">Search</button>
-        <button type="button" class="btn btn-dark">🔍</button>
+        <form id="search-form">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Enter a city"
+            id="city-input"
+            autocomplete="off"
+          />
+          <button type="button" class="btn btn-secondary">Search</button>
+          <button type="button" class="btn btn-dark">🔍</button>
+        </form>
         <h1 id="city">Caracas</h1>
         <ul>
-          <li id="date-and-hour">Tuesday 12:00</li>
+          <li id="date-and-hour"></li>
           <li id="sensation"></li>
         </ul>
         <div class="row">
@@ -40,7 +42,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-6 diferent-conditions">
             <ul>
               <li id="condition"></li>
               <li id="humidity"></li>
