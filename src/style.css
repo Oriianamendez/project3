@@ -31,8 +31,9 @@ small {
   font-size: 13px;
 }
 img {
-  width: 50px;
+  width: 90px;
   color: #17342a;
+  margin: 5px;
 }
 .weather-app {
   max-width: 600px;
@@ -61,9 +62,16 @@ img {
   color: #6db193;
 }
 .temperature-number {
-  font-size: 70px;
+  font-size: 65px;
   color: #17342a;
 }
 .temperature-units {
+  margin-top: 25px;
+}
+.d-flex {
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+.diferent-conditions {
   margin-top: 25px;
 }
