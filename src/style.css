@@ -83,3 +83,11 @@ a {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+.weather-forecast {
+  margin-left: 20px;
+  margin-top: 25px;
+  text-align: center;
+}
+.weather-forecast-temperatures-min {
+  opacity: 0.6;
+}
