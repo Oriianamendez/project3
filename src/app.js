@@ -48,6 +48,11 @@ function displayTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   currentIcon.setAttribute("alt", response.data.condition.description);
+
+  forecastCity = response.data.city;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${forecastCity}&key=${apiKey}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function search(city) {
@@ -89,6 +94,48 @@ function actualPosition(position) {
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(actualPosition);
+}
+
+function formatDayForecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+
+  return day;
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+  forecastDay = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecastDay.forEach(function (forecastDaily, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
+    <div class="col-3">
+      <div class="forecast-date">${formatDayForecast(forecastDaily.time)}</div>
+      <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+        forecastDaily.condition.icon
+      }.png" alt="Weather icon" class="extra-icon">
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperatures-max">${Math.round(
+          forecastDaily.temperature.maximum
+        )}°</span>
+        <span class="weather-forecast-temperatures-min">${Math.round(
+          forecastDaily.temperature.minimum
+        )}°</span>
+      </div>
+    </div>
+    `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let currentLocationButton = document.querySelector("#current-location");
