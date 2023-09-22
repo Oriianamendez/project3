@@ -30,11 +30,6 @@ small {
   margin-bottom: 0;
   font-size: 13px;
 }
-img {
-  width: 90px;
-  color: #17342a;
-  margin: 5px;
-}
 a {
   text-decoration: none;
   color: #6db193;
@@ -84,10 +79,16 @@ a {
   text-decoration: none;
 }
 .weather-forecast {
-  margin-left: 20px;
   margin-top: 25px;
   text-align: center;
 }
 .weather-forecast-temperatures-min {
   opacity: 0.6;
+}
+.first-icon {
+  width: 90px;
+  margin: 5px;
+}
+.extra-icon {
+  width: 60px;
 }
