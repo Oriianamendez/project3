@@ -3,8 +3,12 @@ html {
   min-height: 100%;
 }
 body {
-  background: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
-  color: #295f4e;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(234, 249, 249, 0.67) 0.1%,
+    rgba(239, 249, 251, 0.63) 90.1%
+  );
+  color: black;
 }
 h1 {
   font-size: 32px;
@@ -32,34 +36,45 @@ small {
 }
 a {
   text-decoration: none;
-  color: #6db193;
+  color: #6f88fc;
 }
 .weather-app {
   max-width: 600px;
   margin: 100px auto;
   margin-bottom: 0;
   padding: 20px;
-  border: 2px solid #f4e5c2;
+  border: 2px solid
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(234, 249, 249, 0.67) 0.1%,
+      rgba(239, 249, 251, 0.63) 90.1%
+    );
   border-radius: 10px;
-  background: #fff9ea;
+  background: radial-gradient(
+    circle at -0.8% 4.3%,
+    rgb(59, 176, 255) 0%,
+    rgb(76, 222, 250) 83.6%
+  );
 }
 .form-control {
   margin-bottom: 20px;
   width: 400px;
   display: inline;
-  background: #deecdd;
+  background: rgba(243, 255, 255, 0.948);
 }
 .btn-secondary,
 .btn-dark {
   display: inline;
   margin-top: -5px;
   margin-left: 10px;
-  background: #295f4e;
+  background: rgb(59, 176, 255);
+  border-color: rgb(59, 176, 255);
+  color: #f7ffff;
 }
 
 .temperature-number {
   font-size: 65px;
-  color: #17342a;
+  color: black;
 }
 .temperature-units {
   margin-top: 25px;
@@ -72,7 +87,7 @@ a {
   margin-top: 25px;
 }
 .weather-temperature .active {
-  color: #17342a;
+  color: black;
   cursor: default;
 }
 .weather-temperature .active:hover {
@@ -91,4 +106,8 @@ a {
 }
 .extra-icon {
   width: 60px;
+}
+.fahrenheit-link,
+.celsius-link {
+  color: rgba(243, 255, 255, 0.948);
 }
