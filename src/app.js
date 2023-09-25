@@ -67,22 +67,6 @@ function handleSubmit(event) {
   search(currentCityInput.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let currentTemperature = document.querySelector("#temperature-number");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
-}
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let currentTemperature = document.querySelector("#temperature-number");
-  currentTemperature.innerHTML = Math.round(celsiusTemperature);
-}
-
 function actualPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -145,11 +129,5 @@ let apiKey = "6efaaef1baet493f7b254do70ae07eb3";
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Caracas");
